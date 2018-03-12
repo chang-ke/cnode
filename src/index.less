@@ -1,0 +1,86 @@
+html {
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif, "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    @media screen and (max-width: 1081px) {
+        font-size: 1.2rem;
+    }
+}
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+#root {
+    background: #fff;
+}
+
+.icon-backtop {
+    text-align: center;
+    font-size: 3rem;
+    line-height: 40px;
+    position: fixed;
+    right: 30px;
+    bottom: 65px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.35);
+    @media screen and (min-width: 1300px) {
+        right: 75px;
+        bottom: 95px;
+        width: 48px;
+        height: 48px;
+        line-height: 48px;
+    }
+}
+
+.ant-tabs-tab-active {
+    display: inline-block !important;
+    width: 50%;
+}
+
+#submit {
+    width: 100%;
+    text-align: center;
+    padding-top: 200px;
+    margin: auto;
+}
+
+#submit-token {
+    margin: 5px 0;
+    height: 40px;
+    font-size: 1.6rem;
+    padding: 0 10px;
+    width: 50%;
+}
+
+#submit-btn {
+    margin: 20px;
+    font-size: 1.6rem;
+    width: 80px;
+    height: 35px;
+}
+
+#tip-login {
+    text-align: center;
+    padding: 150px 0;
+    font-size: 1.5rem;
+}
+
+.report {
+    position: absolute;
+    right: 8px;
+    font-size: 2.6rem;
+    font-weight: 300;
+}

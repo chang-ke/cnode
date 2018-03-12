@@ -1,0 +1,270 @@
+.guide {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    -webkit-animation: move-down 0.3s ease-out;
+    animation: move-down 0.3s ease-out;
+    height: 45px;
+    background: #3f3f3f;
+    text-align: center;
+    line-height: 45px;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    color: #fff;
+    z-index: 2;
+    box-shadow: 0 0 4px #222;
+}
+
+@keyframes move-down {
+    0% {
+        -webkit-transform: translate(0, -10px);
+        transform: translate(0, -10px);
+    }
+    100% {
+        -webkit-transform: translate(0, 0);
+        transform: translate(0, 0);
+    }
+}
+
+.back {
+    position: absolute;
+    width: 50px;
+    left: 0px;
+    height: 45px;
+    color: #ffffff;
+    font-size: 2.2rem;
+}
+
+.last_reply_at,
+.visted-count,
+.create_at {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.create_at {
+    margin-left: 10px;
+}
+
+.visted-count {
+    float: right;
+    margin-right: 10px;
+}
+
+.last_reply_at {
+    float: right;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.anwser {
+    margin: 10px 0px 30px 0;
+    width: 100%;
+    border-bottom: 1px #ccc dashed;
+}
+
+.loginname {
+    color: #7ab005;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.user {
+    text-align: center;
+    padding: 5px 0;
+    background: #f8f8ff;
+}
+
+.prettyprint {
+    line-height: 1.5 !important;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    background: #f6f8fa;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    padding: 0 5px;
+    font-weight: 600;
+    overflow-x: auto;
+}
+
+.topic-text {
+    margin: 10px 5px;
+    color: #2c3e50 !important;
+    font-size: 1.35rem;
+    line-height: 2;
+}
+
+.topic-text {
+    img {
+        max-width: 100%;
+        /*max-height: 450px;*/
+        display: block;
+    }
+}
+
+.topic-text {
+    table {
+        font-size: 1.2rem;
+    }
+}
+
+.topic-text {
+    p {
+        margin: 10px 0;
+        word-break: break-all;
+    }
+}
+
+.topic-text {
+    code {
+        background: #f6f8fa;
+        padding: 0 5px;
+    }
+}
+
+.topic-text {
+    h2 {
+        border-bottom: 1px #ccc dashed;
+        padding: 5px 0;
+        margin: 5px 0;
+    }
+}
+
+.topic-text {
+    li {
+        margin-left: 20px;
+    }
+}
+
+.topic-text>ul {
+    margin-top: 5px;
+    list-style-type: initial;
+}
+
+.topic-text>ul ul {
+    margin-top: 5px;
+    list-style-type: circle;
+}
+
+.topic-text {
+    ol {
+        margin-top: 5px;
+        list-style-type: decimal;
+    }
+}
+
+.topic-reply-count {
+    background: #eee;
+    height: 40px;
+    padding: 10px;
+    font-size: 1.4rem;
+}
+
+.icon-dianzan {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.icon-dianzan-num {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+.icon-huifu {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.markdown-text {
+    font-size: 1.3rem;
+    margin: 5px 10px 10px 65px;
+    line-height: 1.8;
+    word-break: break-all;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.markdown-text {
+    img {
+        max-width: 100%;
+        /*max-height: 450px;*/
+        display: block;
+    }
+}
+
+.markdown-text {
+    p {
+        word-wrap: break-word;
+        /*强制换行*/
+    }
+}
+
+.markdown-text {
+    code {
+        background: #f6f8fa;
+        display: block;
+        border: 1px #ccc dashed;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        padding: 0 5px;
+    }
+}
+
+.topic-title {
+    padding: 10px 5px;
+    font-weight: bolder;
+    color: #000000;
+    background: #eee;
+}
+
+#reply-textArea {
+    position: fixed;
+    bottom: 0;
+    height: 40px !important;
+    line-height: 30px;
+    left: 0;
+    padding-right: 47px;
+}
+
+#reply-btn {
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    line-height: 40px;
+    right: 0;
+}
+
+.guide-title {
+    overflow: hidden;
+    width: 80%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #fff;
+    margin: 0 auto;
+    font-weight: 600;
+}
+
+@media screen and (max-width: 1081px) {
+    .markdown-text {
+        img {
+            max-width: 100%;
+            /*max-height: 350px;*/
+        }
+    }
+    .markdown-text {
+        pre {
+            font-size: 1.22rem;
+        }
+    }
+    .guide {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+    .markdown-text {
+        margin: 10px 10px 10px 50px;
+    }
+}
+
+@media screen and (min-width: 1081px) {
+    .guide,
+    #logo {
+        width: 40%;
+    }
+}

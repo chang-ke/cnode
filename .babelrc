@@ -1,0 +1,14 @@
+{
+  "presets": [
+    "react",
+    "stage-0",
+    "es2015",
+    "es2017"
+  ],
+  "plugins": [
+    "react-html-attrs",
+    "transform-class-properties",
+    "transform-runtime",
+    ["import", { "libraryName": "antd", "style": "css" }]
+  ]
+}
