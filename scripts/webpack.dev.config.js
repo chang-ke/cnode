@@ -6,6 +6,7 @@ const OpenBrowserPlugin = require("open-browser-webpack-plugin");
 
 const webpackConfigDev = {
   devtool: "source-map",
+
   plugins: [
     new webpack.DefinePlugin({
       "process.env": {
@@ -17,6 +18,7 @@ const webpackConfigDev = {
     }),
     new OpenBrowserPlugin({ url: "http://localhost:8080" })
   ],
+
   devServer: {
     contentBase: path.join(__dirname, "../public"),
     historyApiFallback: true,

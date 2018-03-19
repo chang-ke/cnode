@@ -18,7 +18,7 @@ const Routes = [
   {
     login: false,
     path: "/user/:id",
-    Component: dynamic(() => import("./components/userView"))
+    Component: dynamic(() => import("./components/personal"))
   },
   {
     login: false,
@@ -28,7 +28,7 @@ const Routes = [
   {
     login: true,
     path: "/my/view",
-    Component: dynamic(() => import("./components/mine"))
+    Component: dynamic(() => import("./components/user"))
   },
   {
     login: true,

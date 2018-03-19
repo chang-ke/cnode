@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { Input, message, Button } from "antd";
-import { Guide, Tip } from "./common/layout";
-import { Spin } from "./common/spin";
-import { toBottom, formatTime, debounce } from "../util/tool";
-
+import { NavBar, Tip } from "../common/layout";
+import { Spin } from "../common/spin";
+import { toBottom, formatTime, debounce } from "../../util/tool";
+import "./style.less"
 const { TextArea } = Input;
 
 class Detail extends Component {
@@ -78,7 +78,7 @@ class Detail extends Component {
 
     return (
       <div className="topic-container">
-        <Guide history={history} title={data.title} />
+        <NavBar history={history} title={data.title} />
         {loading ? (
           <Spin loading={loading} />
         ) : (
@@ -132,7 +132,7 @@ const User = ({ data }) => {
       <Link to={`/user/${data.author.loginname}`}>
         <img
           src={data.author.avatar_url}
-          className="avator"
+          className="avatar"
           alt={data.author.loginname}
           title={data.author.loginname}
         />
@@ -158,7 +158,7 @@ const ReplyCotent = props => {
           <Link to={`/user/${anwser.author.loginname}`}>
             <img
               src={anwser.author.avatar_url}
-              className="avator"
+              className="avatar"
               alt={anwser.author.loginname}
               title={anwser.author.loginname}
             />

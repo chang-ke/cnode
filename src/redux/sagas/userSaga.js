@@ -3,11 +3,11 @@ import { message } from "antd";
 import { browserHistory } from 'react-router-dom'
 import { setCookie, /*getCookie,*/ delCookie } from "../../util/tool";
 import { fetchTopic } from "./topicSaga";
-import { checkToken, getUser, sendMsg, sendReply, sendUp, queryMsg } from "../../servers/user";
+import { validateToken, getUser, sendMsg, sendReply, sendUp, queryMsg } from "../../servers/user";
 
 export function* getUserMsg(action) {
   try {
-    const response = yield call(checkToken, { accesstoken: sessionStorage.AccessToken });
+    const response = yield call(validateToken, { accesstoken: sessionStorage.AccessToken });
     if (response.data && response.data.success) {
       const { data } = yield call(getUser, response.data.loginname);
       yield put({ type: "USER_SGIN_IN", User: data.data });
@@ -25,7 +25,7 @@ export function* login(action) {
   const { access_token, path, history } = action.payload;
   console.log(action)
   try {
-    const res = yield call(checkToken, { accesstoken: access_token });
+    const res = yield call(validateToken, { accesstoken: access_token });
     if (res.data && res.data.success) {
       const { data } = yield call(getUser, res.data.loginname);
       console.log(data.data)

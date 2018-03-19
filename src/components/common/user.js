@@ -2,13 +2,13 @@ import React from "react";
 import { Tabs } from "antd";
 import { Link } from "react-router-dom";
 import { formatTime } from "../../util/tool";
-
+import "./user.less"
 const { TabPane } = Tabs;
 
-const UserPanel = props => {
+const BaseUserPanel = props => {
   return (
     <div className="user">
-      <img src={props.avatar_url} className="user-view-avator" alt={props.loginname} />
+      <img src={props.avatar_url} className="user-view-avatar" alt={props.loginname} />
       <span className="user-props">{props.loginname}</span>
       <br />
       <span>
@@ -45,7 +45,7 @@ const Recent = ({ recent_topics, recent_replies }) => {
                   {data.title}
                 </Link>
                 <Link to={`/user/${data.author.loginname}`}>
-                  <img src={data.author.avatar_url} className="avator" alt={data.author.loginname} />
+                  <img src={data.author.avatar_url} className="avatar" alt={data.author.loginname} />
                 </Link>
               </div>
             );
@@ -55,4 +55,4 @@ const Recent = ({ recent_topics, recent_replies }) => {
     </Tabs>
   );
 };
-export { UserPanel, Recent };
+export { BaseUserPanel, Recent };

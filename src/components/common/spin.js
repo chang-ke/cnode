@@ -1,13 +1,15 @@
 import React from "react";
-import "./animation.less";
+import "./spin.less";
 
 const Spin = props => {
   let style = {};
-  if (!Object.prototype.hasOwnProperty.call(props, "style"))
+  if (!Object.prototype.hasOwnProperty.call(props, "style")) {
     style = {
       top: "45px"
     };
-  else style = props.style;
+  } else {
+    style = props.style;
+  }
   return (
     <div className={props.loading === true ? "spinner" : ""} style={style}>
       <div className={props.loading === true ? "spinner-container container1" : ""}>

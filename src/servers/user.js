@@ -1,6 +1,6 @@
 import request from "../util/request";
 
-export function checkToken(params) {
+export function validateToken(params) {
   return request(`/accesstoken`, {
     method: "POST",
     mode: "cors",

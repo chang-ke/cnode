@@ -1,9 +1,10 @@
 import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Footer, Header } from "./common/layout";
-import { formatTime, throttle, toBottom, ScrollTop } from "../util/tool";
-import { Spin } from "./common/spin";
+import { FooterBar, HeaderBar } from "../common/layout";
+import { formatTime, throttle, toBottom, ScrollTop } from "../../util/tool";
+import { Spin } from "../common/spin";
+import "./style.less"
 
 class Title extends PureComponent {
   state = {
@@ -84,12 +85,12 @@ class Title extends PureComponent {
         <div id="logo">
           <img src="https://o4j806krb.qnssl.com/public/images/cnodejs_light.svg" alt="cnode标志" />
         </div>
-        <Header location={location} />
+        <HeaderBar location={location} />
         {data && data.length === 0 ? <Spin loading={loading} /> : <TitleList data={data} />}
         <div style={{ height: downLoading ? "55px" : 0 }}>
           <Spin loading={downLoading} style={{ bottom: "50px" }} />
         </div>
-        <Footer location={location} />
+        <FooterBar location={location} />
       </div>
     );
   }
@@ -109,7 +110,7 @@ export const TitleList = props => {
         <br />
         <div>
           <Link to={`/user/${author.loginname}`}>
-            <img src={author.avatar_url} className="avator" alt={author.loginname} title={author.loginname} />
+            <img src={author.avatar_url} className="avatar" alt={author.loginname} title={author.loginname} />
           </Link>
           <div>
             <p style={{ marginBottom: "13px" }}>

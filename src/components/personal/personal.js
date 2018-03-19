@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Guide } from "./common/layout";
-import { UserPanel, Recent } from "./common/user";
-import request from "../util/request";
-import { Spin } from "./common/spin";
-
-class UserView extends Component {
+import { NavBar } from "../common/layout";
+import { BaseUserPanel, Recent } from "../common/user";
+import request from "../../util/request";
+import { Spin } from "../common/spin";
+import "./style.less";
+class Personal extends Component {
   state = {
     data: {
       recent_topics: [],
@@ -32,10 +32,10 @@ class UserView extends Component {
     const { data } = this.state;
     return (
       <div>
-        <Guide history={this.props.history} title={data.loginname ? `${data.loginname}的个人中心` : ""} />
+        <NavBar history={this.props.history} title={data.loginname ? `${data.loginname}的个人中心` : ""} />
         {data.loginname ? (
           <div className="user-view">
-            <UserPanel {...data} />
+            <BaseUserPanel {...data} />
             <Recent {...data} />
           </div>
         ) : (
@@ -46,4 +46,4 @@ class UserView extends Component {
   }
 }
 
-export default UserView;
+export default Personal;

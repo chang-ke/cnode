@@ -2,9 +2,10 @@ import React, { PureComponent } from "react";
 import { connect } from "react-redux";
 import { Tabs } from "antd";
 import { Link } from "react-router-dom";
-import { formatTime } from "../util/tool";
-import { Footer, Guide } from "./common/layout";
-import request from "../util/request";
+import { formatTime } from "../../util/tool";
+import { FooterBar, NavBar } from "../common/layout";
+import request from "../../util/request";
+import "./style.less"
 
 const { TabPane } = Tabs;
 
@@ -32,7 +33,7 @@ class Message extends PureComponent {
     const { has_read_messages, hasnot_read_messages } = this.state;
     return (
       <div style={{ marginTop: "45px", marginBottom: "50px" }}>
-        <Guide title={"消息"} />
+        <NavBar title={"消息"} />
         <Tabs defaultActiveKey="has_read">
           <TabPane tab="未读消息" key="has_read">
             <Title messages={hasnot_read_messages} />
@@ -41,7 +42,7 @@ class Message extends PureComponent {
             <Title messages={has_read_messages} />
           </TabPane>
         </Tabs>
-        <Footer location={location} />
+        <FooterBar location={location} />
       </div>
     );
   }
@@ -61,7 +62,7 @@ const Title = props => {
           <br />
           <div>
             <Link to={`/user/${author.loginname}`}>
-              <img src={author.avatar_url} className="avator" alt={author.loginname} />
+              <img src={author.avatar_url} className="avatar" alt={author.loginname} />
             </Link>
             <div>
               <p style={{ marginBottom: "13px" }}>

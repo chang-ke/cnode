@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { ScrollTop, debounce } from "../../util/tool";
+import "./layout.less"
 
 export const Tip = props => {
   return (
-    <div id="tip-login" style={props.style}>
+    <div id="login-tip" style={props.style}>
       您还未登陆,请<Link to={{ pathname: "/my/login", state: { from: props.location } }}>登陆</Link>
     </div>
   );
@@ -13,24 +14,20 @@ Tip.defaultProps = {
   style: {},
   title: "详情"
 };
-export const Guide = ({ title, history, children }) => {
-  const back = () => {
-    history.goBack(); //这个history本身没有,其他组件传给他的
-  };
-
+export const NavBar = ({ title, history, children }) => {
   return (
-    <div className="guide">
+    <div className="navbar">
       {children}
-      {history ? <span className="back icon-fanhui iconfont" onClick={back} /> : ""}
-      <h4 className="guide-title">{title}</h4>
+      {history ? <span className="iconfont icon-fanhui back" onClick={() => history.goBack()} /> : ""}
+      <h4 className="navbar-title">{title}</h4>
     </div>
   );
 };
-Guide.defaultProps = {
+NavBar.defaultProps = {
   title: ""
 };
 
-export const Header = ({ location }) => {
+export const HeaderBar = ({ location }) => {
   const addClass = e => {
     let div = document.getElementById("header").children;
     if (e.target.parentNode.id !== "header") {
@@ -56,7 +53,7 @@ export const Header = ({ location }) => {
   );
 };
 
-export const Footer = ({ location }) => {
+export const FooterBar = ({ location }) => {
   const addClass = e => {
     e.preventDefault();
     let div = document.getElementById("footer").children;

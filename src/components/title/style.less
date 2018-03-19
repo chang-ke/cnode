@@ -1,0 +1,167 @@
+.index {
+    background: #efeff4;
+    padding-top: 82px;
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
+}
+
+#logo {
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    background: #3f3f3f;
+    z-index: 999;
+    @media screen and (min-width: 1081px) {
+        width: 40%;
+    }
+    img {
+        width: 100px;
+        height: 35px;
+        margin-left: 20px
+    }
+}
+
+.contant {
+    width: 100%;
+    display: inline-block;
+    padding: 4px 5px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 10px;
+    &:hover {
+        -webkit-box-shadow: 0 0px 4px rgba(0, 0, 0, .5);
+        box-shadow: 0 0px 4px rgba(0, 0, 0, .5);
+    }
+    i {
+        float: left;
+    }
+}
+
+.title {
+    float: left;
+    margin-left: 0 5px 5px 0;
+    color: #000000;
+    font-size: 1.6rem;
+    overflow: hidden;
+    width: 100%;
+    font-weight: bold;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.loginname {
+    color: #7ab005;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.last_reply_at,
+.visted-count,
+.create_at {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.visted-count {
+    float: right;
+    margin-right: 10px;
+}
+
+.create_at {
+    margin-left: 10px;
+}
+
+.last_reply_at {
+    float: right;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.avatar {
+    width: 45px;
+    float: left;
+    border: 1px #eee solid;
+    border-radius: 10%;
+    @media screen and (min-width: 1080px) {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.mark {
+    width: 23.55px;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.icon-good {
+    background: green;
+    margin-right: 3px;
+    &:before {
+        content: "\e627";
+    }
+}
+
+.icon-top {
+    background: red;
+    margin-right: 3px;
+    &:before {
+        content: "\e629";
+    }
+}
+
+.icon-share {
+    background: #ff66ff;
+    margin-right: 3px;
+    &:before {
+        content: "\e685";
+    }
+}
+
+.icon-ask {
+    background: blue;
+    margin-right: 3px;
+    &:before {
+        content: "\e60c";
+    }
+}
+
+.icon-job {
+    background: #00b38a;
+    margin-right: 3px;
+    font-weight: 500;
+    &:before {
+        content: "\e63a";
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    @keyframes fadeInUp {
+        from {
+            opacity: 0.2;
+            /*-webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);*/
+            -webkit-transform: translate(0px, 30px);
+            transform: translate(0px, 30px);
+        }
+        to {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+    .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+    }
+    .animated {
+        transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+        /* -webkit-animation-duration: 1s; */
+        animation-duration: 0.75s;
+        /* -webkit-animation-fill-mode: both; */
+        animation-fill-mode: both;
+    }
+}

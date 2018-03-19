@@ -1,7 +1,6 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   devtool: "inline-eval-source-map",
@@ -24,47 +23,20 @@ module.exports = {
         test: /\.(js|jsx)?$/,
         exclude: /(node_modules)/,
         loader: "babel-loader?cacheDirectory=true"
-      }, {
+      },
+      {
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-              loader: "css-loader",
-              options: {
-                //localIdentName: "[local]__[hash:base64:5]",
-                minimize: true
-              }
-            }, {
-              loader: "less-loader"
-            }
-          ]
-        })
-      }, {
+        use: ["style-loader", "css-loader", "less-loader"]
+      },
+      {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: [
-            {
-              loader: "css-loader",
-              options: {
-                minimize: true
-              }
-            }
-          ]
-        })
+        use: ["style-loader", "css-loader"]
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin("style.[hash:4].css", {
-      disable: false,
-      allChunks: true
-    }),
     new webpack.HashedModuleIdsPlugin(),
-    new webpack
-      .optimize
-      .CommonsChunkPlugin({name: "common", filename: "common.bundle.js"}),
+    new webpack.optimize.CommonsChunkPlugin({ name: "common", filename: "common.bundle.js" }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: path.join(__dirname, "../public/index.html")

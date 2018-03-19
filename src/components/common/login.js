@@ -1,18 +1,19 @@
 import React from "react";
 import { Input, Button } from "antd";
 import { connect } from "react-redux";
-import { Guide } from "./layout";
+import { NavBar } from "./layout";
+import "./login.less"
 
 const Login = ({ dispatch, location, history }) => {
   const login = () => {
     const access_token = document.getElementById("submit-token").value;
     const path = location.state ? location.state.from.pathname : "detail";
-    dispatch({ type: "login", payload:{access_token: access_token, path: path, history: history }});
+    dispatch({ type: "login", payload: { access_token: access_token, path: path, history: history } });
   };
 
   return (
     <div id="submit">
-      <Guide history={history} title={"登陆"} />
+      <NavBar history={history} title={"登陆"} />
       <Input
         type="password"
         id="submit-token"
