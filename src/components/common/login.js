@@ -2,7 +2,8 @@ import React from "react";
 import { Input, Button } from "antd";
 import { connect } from "react-redux";
 import { NavBar } from "./layout";
-import "./login.less"
+import { getCookie } from "../../util/tool";
+import "./login.less";
 
 const Login = ({ dispatch, location, history }) => {
   const login = () => {
@@ -18,7 +19,7 @@ const Login = ({ dispatch, location, history }) => {
         type="password"
         id="submit-token"
         placeholder="请输入access_token"
-        defaultValue="0356a904-b9cf-4ab0-9a03-2cac15a9e1b9"
+        defaultValue={getCookie("access_token")}
       />
       <br />
       <Button id="submit-btn" onClick={login}>

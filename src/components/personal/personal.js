@@ -4,6 +4,7 @@ import { BaseUserPanel, Recent } from "../common/user";
 import request from "../../util/request";
 import { Spin } from "../common/spin";
 import "./style.less";
+
 class Personal extends Component {
   state = {
     data: {
@@ -14,7 +15,7 @@ class Personal extends Component {
 
   async componentDidMount() {
     const { id } = this.props.match.params;
-    const { data } = await request("/user/" + id);
+    const { data } = await request(`/user/${id}`);
     this.setState({ data: data.data });
   }
 
@@ -23,7 +24,7 @@ class Personal extends Component {
 
     if (id !== this.props.match.params.id) {
       //在用户详情页下点击该用户不再加载该用户
-      const { data } = await request("/user/" + id);
+      const { data } = await request(`/user/${id}`);
       this.setState({ data: data.data });
     }
   }

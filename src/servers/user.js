@@ -62,3 +62,14 @@ export function sendUp(params) {
 export function queryMsg(params) {
   return request(`/messages?accesstoken=${params}`);
 }
+
+export function sendTopic(params){
+  return request(`/topics`,{
+    method: "POST",
+    credentials: "include",
+    headers:{
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(params)
+  });
+}

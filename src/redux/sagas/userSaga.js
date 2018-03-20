@@ -1,9 +1,9 @@
 import { put, call, fork } from "redux-saga/effects";
 import { message } from "antd";
-import { browserHistory } from 'react-router-dom'
+import { browserHistory } from "react-router-dom";
 import { setCookie, /*getCookie,*/ delCookie } from "../../util/tool";
 import { fetchTopic } from "./topicSaga";
-import { validateToken, getUser, sendMsg, sendReply, sendUp, queryMsg } from "../../servers/user";
+import { validateToken, getUser, sendMsg, sendReply, sendUp, queryMsg, sendTopic } from "../../servers/user";
 
 export function* getUserMsg(action) {
   try {
@@ -21,14 +21,12 @@ export function* getUserMsg(action) {
   }
 }
 
-export function* login(action) {
-  const { access_token, path, history } = action.payload;
-  console.log(action)
+export function* login({ payload }) {
+  const { access_token, path, history } = payload;
   try {
     const res = yield call(validateToken, { accesstoken: access_token });
     if (res.data && res.data.success) {
       const { data } = yield call(getUser, res.data.loginname);
-      console.log(data.data)
       yield put({ type: "USER_SGIN_IN", user: data.data });
       yield put({ type: "ACCESS_TOKEN", access_token: access_token });
       sessionStorage.setItem("USER_ON", JSON.stringify(data.data));
@@ -38,20 +36,19 @@ export function* login(action) {
         if (/detail/.test(path)) {
           browserHistory.go(-1);
         } else {
-          browserHistory.push(path);
+          browserHistory.go(-2);
         }
         message.info("登陆成功，正在跳转");
       }, 300);
     }
   } catch (error) {
-    console.log(error)
     message.error("登陆失败");
   }
 }
 
 export function* logout(action) {
   try {
-    yield put({ type: "USER_SGIN_OUT"});
+    yield put({ type: "USER_SGIN_OUT" });
     yield put({ type: "ACCESS_TOKEN", access_token: "" });
     sessionStorage.removeItem("User");
     sessionStorage.removeItem("AccessToken");
@@ -61,11 +58,11 @@ export function* logout(action) {
   }
 }
 
-export function* handleReply(action) {
+export function* handleReply({ payload }) {
   try {
-    const { data } = yield call(sendReply, action.payload);
+    const { data } = yield call(sendReply, payload);
     if (data.success) {
-      yield fork(fetchTopic, { payload: { id: action.payload.id } });
+      yield fork(fetchTopic, { payload: { id: payload.id } });
       message.success("评论成功");
     }
     yield put({ type: "HANDLE_REPLY_SUCCESSED" });
@@ -74,11 +71,11 @@ export function* handleReply(action) {
   }
 }
 
-export function* handleMsg(action) {
+export function* handleMsg({ payload }) {
   try {
-    const { data } = yield call(sendMsg, action.payload);
+    const { data } = yield call(sendMsg, payload);
     if (data.success) {
-      yield fork(fetchTopic, { payload: { id: action.payload.id } });
+      yield fork(fetchTopic, { payload: { id: payload.id } });
       message.success("回复成功");
     }
   } catch (error) {
@@ -86,9 +83,9 @@ export function* handleMsg(action) {
   }
 }
 
-export function* handleUp(action) {
+export function* handleUp({ payload }) {
   try {
-    const { data } = yield call(sendUp, action.payload);
+    const { data } = yield call(sendUp, payload);
     if (!data.success) {
       message.success("点赞失败了");
     }
@@ -97,9 +94,9 @@ export function* handleUp(action) {
   }
 }
 
-export function* getMsg(action) {
+export function* getMsg({ payload }) {
   try {
-    const { data } = yield call(queryMsg, action.payload.access_token);
+    const { data } = yield call(queryMsg, payload.access_token);
     if (data.success) {
       yield put({
         type: "MSG_FETCH_SUCCESSED",
@@ -110,6 +107,20 @@ export function* getMsg(action) {
       message.error("获取消息失败");
     }
   } catch (error) {
+    message.error("网络好像有问题哦");
+  }
+}
+
+export function* handleTopic({ payload }) {
+  try {
+    const { data } = yield call(sendTopic, payload);
+    if (data && data.success) {
+      message.info("发表成功");
+    } else {
+      message.warn("标题字数太多或太少");
+    }
+  } catch (error) {
+    console.log(error);
     message.error("网络好像有问题哦");
   }
 }

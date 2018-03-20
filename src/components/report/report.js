@@ -4,7 +4,7 @@ import { Select, Input, message } from "antd";
 import { FooterBar, NavBar } from "../common/layout";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import "./style.less"
+import "./style.less";
 
 const { Option } = Select;
 class Report extends Component {
@@ -51,21 +51,21 @@ class Report extends Component {
     "video"
   ];
   send = () => {
-    const { access_token } = this.props;
+    const { access_token, dispatch } = this.props;
     const { title, tab, content } = this.state;
-
-    /*if (title.trim() && tab !== "select" && content.trim()) {
-      request(`/topics`, {
-        accesstoken: access_token,
-        title: title,
-        tab: tab,
-        content: content
-      }).then(res => {
-        message.info("发表成功");
+    if (title.trim() && tab !== "select" && content.trim()) {
+      dispatch({
+        type: "handleTopic",
+        payload: {
+          accesstoken: access_token,
+          title: title,
+          tab: tab,
+          content: content
+        }
       });
     } else {
       message.error("请填写完整");
-    }*/
+    }
   };
   handleTab = value => {
     this.setState({ tab: value });
@@ -111,5 +111,9 @@ class Report extends Component {
 
 const mapStateToProps = state => {
   return { ...state.AccessToken };
+};
+
+const mapDispatchToProps = dispatch => {
+  return { dispatch };
 };
 export default connect(mapStateToProps)(Report);

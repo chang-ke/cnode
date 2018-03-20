@@ -1,6 +1,6 @@
 import { takeLatest } from "redux-saga/effects";
 import { fetchTitles, fetchTopic } from "./topicSaga";
-import { login, logout, getUserMsg, handleMsg, handleReply, handleUp, getMsg } from "./userSaga";
+import { login, logout, getUserMsg, handleMsg, handleReply, handleUp, getMsg, handleTopic } from "./userSaga";
 
 export function* mySaga() {
   yield [
@@ -12,6 +12,7 @@ export function* mySaga() {
     takeLatest("handleMsg", handleMsg),
     takeLatest("handleReply", handleReply),
     takeLatest("handleUp", handleUp),
-    takeLatest("getMsg", getMsg)
+    takeLatest("getMsg", getMsg),
+    takeLatest("handleTopic", handleTopic)
   ];
 }
