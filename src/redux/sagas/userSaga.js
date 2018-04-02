@@ -3,7 +3,7 @@ import { message } from "antd";
 import { browserHistory } from "react-router-dom";
 import { setCookie, /*getCookie,*/ delCookie } from "../../util/tool";
 import { fetchTopic } from "./topicSaga";
-import { validateToken, getUser, sendMsg, sendReply, sendUp, queryMsg, sendTopic } from "../../servers/user";
+import { validateToken, getUser, sendMsg, sendReply, sendUp, queryMsg, sendTopic } from "../../services/user";
 
 export function* getUserMsg(action) {
   try {

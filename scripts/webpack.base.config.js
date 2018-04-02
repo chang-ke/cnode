@@ -3,7 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  devtool: "inline-eval-source-map",
+  //devtool: "inline-eval-source-map",
   entry: {
     main: path.join(__dirname, "../src/index.js"),
     common: ["react", "react-dom"]
@@ -23,14 +23,6 @@ module.exports = {
         test: /\.(js|jsx)?$/,
         exclude: /(node_modules)/,
         loader: "babel-loader?cacheDirectory=true"
-      },
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"]
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
       }
     ]
   },

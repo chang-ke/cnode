@@ -1,6 +1,6 @@
 import { put, call } from "redux-saga/effects";
 import { message } from "antd";
-import { queryTopics, queryTitle } from "../../servers/title";
+import { queryTopics, queryTitle } from "../../services/title";
 
 export function* fetchTitles(action) {
   const titles = sessionStorage[action.payload.type];

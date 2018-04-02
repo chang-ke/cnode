@@ -34,6 +34,7 @@ const webpackConfigProd = {
             {
               loader: "css-loader",
               options: {
+                //localIdentName: "[local]__[hash:base64:5]",
                 minimize: true
               }
             }
@@ -43,10 +44,7 @@ const webpackConfigProd = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin("style.[hash:4].css", {
-      disable: false,
-      allChunks: true
-    }),
+    new ExtractTextPlugin("style.[hash:4].css"),
     new webpack.HashedModuleIdsPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
