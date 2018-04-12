@@ -20,7 +20,7 @@ const checkStatus = response => {
  * @return {object}           An object containing either "data" or "err"
  */
 const request = (url, options) => {
-  return fetch(`/api/v1${url}`, options)
+  return fetch(`https://cnodejs.org/api/v1${url}`, options)
     .then(checkStatus)
     .then(parseJSON)
     .then(data => ({ data }))
