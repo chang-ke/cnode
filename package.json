@@ -17,8 +17,8 @@
     "redux-saga": "^0.16.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --hot --inline --color --hot --config ./scripts/webpack.dev.config.js",
-    "build": "webpack -p --config ./scripts/webpack.prod.config.js"
+    "start": "webpack-dev-server --hot --inline --color --hot --config ./scripts/webpack.dev.js",
+    "build": "webpack -p --config ./scripts/webpack.prod.js"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",

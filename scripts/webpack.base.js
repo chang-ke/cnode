@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "../build"),
     filename: "[name].[hash].js",
-    publicPath: "/",
+    publicPath: "/cnode",
     chunkFilename: "[name].[chunkhash].async.js"
   },
   resolve: {

@@ -6,12 +6,6 @@
 # testing
 /coverage
 
-# production
-/build
-
-# webpack
-/dist
-
 # package
 /package-lock.json
 
